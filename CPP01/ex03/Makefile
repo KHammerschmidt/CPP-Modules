@@ -18,4 +18,4 @@ clean:
 fclean: clean
 	rm -fr $(NAME)
 
-re: flcean all
+re: fclean all
