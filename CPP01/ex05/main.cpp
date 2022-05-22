@@ -2,8 +2,10 @@
 
 int main(void)
 {
-	std::string text = "debug";
-	Harl::complain(text);
-
-	return 0;
+	Harl harl;
+	harl.complain("DEBUG");
+	harl.complain("WARNING");
+	harl.complain("INFO");
+	harl.complain("ERROR");
+	harl.complain("STH");
 }
