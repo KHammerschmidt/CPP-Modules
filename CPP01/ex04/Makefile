@@ -1,7 +1,7 @@
 NAME = sed
 FLAGS = -Wall -Werror -Wextra -std=c++98
 CC = c++
-SRC = main.cpp
+SRC = main.cpp File.cpp
 OBJ = $(SRC:.cpp=.o)
 
 all: $(NAME)
