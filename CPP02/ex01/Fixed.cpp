@@ -12,13 +12,10 @@ Fixed::~Fixed()
 }
 
 //copy constructor
-// : _fixedPointNum(copyFixed._fixedPointNum) //depending on implementation
 Fixed::Fixed(const Fixed &copyFixed)
 {
 	std::cout << "Copy constructor called" << std::endl;
 	*this = copyFixed;
-	// Fixed fixed;
-	// fixed = copyFixed;
 }
 
 //copy assignment operator overload
@@ -40,36 +37,38 @@ void	Fixed::setRawBits(int const raw)
 	this->_fixedPointNum = raw;
 }
 
-Fixed::Fixed(const int parameter)
+Fixed::Fixed(const int num)
 {
 	//converts parameter to fixed-point value
 	std::cout << "Int constructor called" << std::endl;
-	this->_fixedPointNum = parameter / 256;
+	this->_fixedPointNum = num << this->_fracBits;
 }
 
 Fixed::Fixed(const float fNum)
 {
 	//converts it to the corresponding fixed-point value
 	std::cout << "Float constructor called" << std::endl;
-	this->_fixedPointNum = (fNum) / 256;
+
+	this->_fixedPointNum = roundf(fNum * (1 << this->_fracBits));
 }
 
+// convertes the fixed-point value to a floating point value
 float	Fixed::toFloat(void) const
 {
-	// convertes the fixed-point value to a floating point value
-	return ((float)this->_fixedPointNum * 256);
+	return (static_cast<float>(this->_fixedPointNum / static_cast<float>(1 << this->_fracBits)));
 }
 
+//converts fixed-point value to an integer value
 int	Fixed::toInt(void) const
 {
-	//converts fixed-point value to an integer value
-	return ((int)this->_fixedPointNum << this->getRawBits());
+	return (static_cast<int>(this->_fixedPointNum >> this->_fracBits));
 }
 
 std::ostream& operator<<(std::ostream& cout, const Fixed& fixed)
 {
 	//inserts an floating-point representation of the fixed-point
 	//number into output stream object passed as paramter
-	std::cout << (float)fixed.toFloat();
+
+	cout << fixed.toFloat();
 	return (cout);
 }
