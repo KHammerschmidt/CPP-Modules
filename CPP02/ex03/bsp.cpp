@@ -1,9 +1,9 @@
 #include "Point.hpp"
 
-/* Calculates line equation and checks whether points c1 & c2 lie on 
+/* Calculates line equation and checks whether points c1 & c2 lie on
    opposite sides of the line. When being performed with a,b,c and true
    indicates that point lies within the triangle formed by a,b,c. */
-bool pointLineComparison(Point& const p1, Point& const p2, Point const& c1, Point const& c2)
+bool pointLineComparison(Point const& p1, Point const& p2, Point const& c1, Point const& c2)
 {
 	float m, b;
 	float res1, res2;
@@ -22,16 +22,14 @@ bool pointLineComparison(Point& const p1, Point& const p2, Point const& c1, Poin
 
 bool bsp(Point const a, Point const b, Point const c, Point const point)
 {
-	if (a == b || a == c || b == c)
-		return false;
 
-	if (pointLineComparison(&a, &point, &c, &b) 
-		&& pointLineComparison(&b, &point, &a, &c)
-		&& pointLineComparison(&c, &point, &a, &b))
+	if (pointLineComparison(a, point, c, b)
+		&& pointLineComparison(b, point, a, c)
+		&& pointLineComparison(c, point, a, b))
 	{
 		std::cout << "Point in triangle!" << std::endl;
 		return true;
-	}	
+	}
 
 	std::cout << "Point not in triangle!" << std::endl;
 	return false;
