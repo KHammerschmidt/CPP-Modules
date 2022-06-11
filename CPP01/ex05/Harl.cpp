@@ -8,7 +8,6 @@ Harl::~Harl()
 {
 }
 
-
 void Harl::debug(void)
 {
 	std::cout << "I want to debug this code! Beep Boop!" << std::endl;
@@ -34,9 +33,10 @@ static const std::string levels[] = {"DEBUG", "INFO", "WARNING", "ERROR"};
 void Harl::complain(std::string level)
 {
 	void (Harl::*func[])(void) = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
+
 	for (size_t i = 0; i < 4; i++)
 	{
-		if (level == levels[i])
+		if (!(level.compare(levels[i])))
 		{
 			(this->*(func[i]))();
 			break ;

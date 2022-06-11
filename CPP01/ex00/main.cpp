@@ -8,5 +8,4 @@ int	main(void)
 	randomChump(std::string("Zombie on Stack"));
 
 	delete newZombi;
-	return 0;
 }
