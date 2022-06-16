@@ -33,7 +33,7 @@ int	main(void)
 	// Cat	cat1;
 	// Cat	cat2 = cat1;
 
-	system("leaks brain");
+	// system("leaks brain");
 
 	return 0;
 }

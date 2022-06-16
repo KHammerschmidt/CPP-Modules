@@ -3,10 +3,10 @@
 
 #include <iostream>
 #include <string>
-#include "Animal.hpp"
+#include "AAnimal.hpp"
 #include "Brain.hpp"
 
-class Dog : virtual public Animal
+class Dog : public AAnimal
 {
 	private:
 		Brain* _brainAttribute;
@@ -14,7 +14,6 @@ class Dog : virtual public Animal
 	public:
 		Dog();
 		~Dog();
-
 		Dog(const Dog& dog);
 		Dog& operator=(const Dog& dog);
 

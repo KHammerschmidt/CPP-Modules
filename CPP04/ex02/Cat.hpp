@@ -3,13 +3,14 @@
 
 #include <iostream>
 #include <string>
-#include "Animal.hpp"
+#include "AAnimal.hpp"
 #include "Brain.hpp"
 
-class Cat : virtual public Animal
+class Cat : public AAnimal
 {
 	private:
 		Brain* _brainAttribute;
+
 	public:
 		Cat();
 		~Cat();
