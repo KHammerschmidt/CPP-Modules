@@ -25,18 +25,29 @@ int	File::openRepFile(std::string filename, std::ofstream& repFile)
 
 void File::writeToFile(std::ifstream& orgFile, std::ofstream& repFile, std::string s1, std::string s2)
 {
-	char space = ' ';
+	std::string text;
+	size_t		pos;
 
-	while (!orgFile.eof())
+	while (getline(orgFile, text))
 	{
-		std::string text;
-
-		orgFile >> text;
-		if (!text.compare(s1))
-			repFile << s2 << space;
+		pos = text.find(s1);
+		while (pos != std::string::npos)
+		{
+			text = text.substr(0, pos) + s2 + text.substr(pos + s1.length());
+			pos = text.find(s1);
+		}
+		if (!orgFile.eof())
+			repFile << text << std::endl;
 		else
-			repFile << text << space;
+			repFile << text;
 	}
+
+	//one line solution
+	// orgFile >> text;
+	// if (!text.compare(s1))
+	// 	repFile << s2 << space;
+	// else
+	// 	repFile << text << space;
 	orgFile.close();
 	repFile.close();
 }

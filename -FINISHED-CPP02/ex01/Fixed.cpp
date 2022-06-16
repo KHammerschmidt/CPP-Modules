@@ -37,16 +37,16 @@ void	Fixed::setRawBits(int const raw)
 	this->_fixedPointNum = raw;
 }
 
+//converts parameter to fixed-point value
 Fixed::Fixed(const int num)
 {
-	//converts parameter to fixed-point value
 	std::cout << "Int constructor called" << std::endl;
 	this->_fixedPointNum = num << this->_fracBits;
 }
 
+//converts it to the corresponding fixed-point value
 Fixed::Fixed(const float fNum)
 {
-	//converts it to the corresponding fixed-point value
 	std::cout << "Float constructor called" << std::endl;
 
 	this->_fixedPointNum = roundf(fNum * (1 << this->_fracBits));
@@ -55,7 +55,11 @@ Fixed::Fixed(const float fNum)
 // convertes the fixed-point value to a floating point value
 float	Fixed::toFloat(void) const
 {
-	return (static_cast<float>(this->_fixedPointNum / static_cast<float>(1 << this->_fracBits)));
+	float res;
+
+	res = static_cast<float>(this->_fixedPointNum) / static_cast<float>(1 << this->_fracBits);
+
+	return (res);
 }
 
 //converts fixed-point value to an integer value
@@ -64,11 +68,10 @@ int	Fixed::toInt(void) const
 	return (static_cast<int>(this->_fixedPointNum >> this->_fracBits));
 }
 
+//inserts an floating-point representation of the fixed-point
+//number into output stream object passed as paramter
 std::ostream& operator<<(std::ostream& cout, const Fixed& fixed)
 {
-	//inserts an floating-point representation of the fixed-point
-	//number into output stream object passed as paramter
-
 	cout << fixed.toFloat();
 	return (cout);
 }

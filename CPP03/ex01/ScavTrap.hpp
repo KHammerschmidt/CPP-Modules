@@ -7,48 +7,16 @@
 
 class ScavTrap	: public ClapTrap
 {
-	private:
-
 	public:
-		ScavTrap(void);
+		ScavTrap();
+		ScavTrap(std::string name);
 		~ScavTrap();
-
 
 		ScavTrap(ScavTrap const& scavTrap);
 		ScavTrap& operator=(ScavTrap const& scavTrap);
 
+		void	attack(const std::string& target);
+		void	guardGate();
 };
-
-ScavTrap::ScavTrap(ScavTrap const& scavTrap)
-{
-	*this = scavTrap;
-}
-
-ScavTrap& ScavTrap::operator=(ScavTrap const& scavTrap)
-{
-
-}
-
-ScavTrap::ScavTrap(void)
-	: ClapTrap()
-{
-	std::cout << "Constructor ScavTrap called!" << std::endl;
-}
-
-ScavTrap::ScavTrap(std::string name)
-	:ClapTarp(name)
-{
-	this->name = name;
-	this->hitPoints = 100;
-	this->energyPoints = 50;
-	this->attackDamage = 20;
-}
-
-ScavTrap::~ScavTrap()
-	: ~ClapTrap(void)
-{
-	std::cout << "Destructor ScavTrap called!" << std::endl;
-}
-
 
 #endif

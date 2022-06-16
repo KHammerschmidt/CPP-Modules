@@ -40,7 +40,6 @@ void ClapTrap::attack(const std::string& target)
 		std::cout << ", causing " << this->_attackDamage << " points of damage!";
 		std::cout << std::endl;
 
-		// target._hitPoints = target._hitPoints - this->_attackDamage;
 		this->takeDamage(1);
 	}
 	else

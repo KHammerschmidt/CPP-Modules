@@ -1,7 +1,7 @@
-NAME = calc
-FLAGS = -Wall -Werror -Wextra -std=c++98
+NAME = clapTrap
+FLAGS = -Wall -Werror -Wextra
 CC = c++
-SRC = main.cpp bsp.cpp Point.cpp Fixed.cpp
+SRC = main.cpp ClapTrap.cpp
 OBJ = $(SRC:.cpp=.o)
 
 all: $(NAME)

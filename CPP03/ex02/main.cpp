@@ -1,4 +1,4 @@
-#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
 int	main(void)
 {
@@ -10,10 +10,10 @@ int	main(void)
 	// delete ptr;
 
 
-	ScavTrap test("evaluator");
+	FragTrap test("evaluator");
 	for (int i = 0; i != 3; i++)
 		test.attack("target");
-	test.guardGate();
+	test.highFivesGuys();
 	test.beRepaired(2);
 
 	return 0;
