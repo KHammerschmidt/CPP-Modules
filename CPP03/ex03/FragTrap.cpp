@@ -1,8 +1,13 @@
 #include "FragTrap.hpp"
 
-FragTrap::FragTrap()
+FragTrap::FragTrap() : ClapTrap()
 {
 	std::cout << "Default constructor FragTrap called!" << std::endl;
+
+	this->_name = "_frag_trap";
+	this->_hitPoints = 100;
+	this->_energyPoints = 100;
+	this->_attackDamage = 30;
 }
 
 FragTrap::~FragTrap()
@@ -12,24 +17,28 @@ FragTrap::~FragTrap()
 
 FragTrap::FragTrap(std::string name) : ClapTrap(name)
 {
-	std::cout << "Constructor FragTrap std::string name has been called!" << std::endl;
+	std::cout << "Name-Constructor FragTrap called!" << std::endl;
 	this->_name = name;
 	this->_hitPoints = 100;
 	this->_energyPoints = 100;
 	this->_attackDamage = 30;
+
+	std::cout << "FragTrap attack Damage: " << this->_attackDamage << std::endl;
 }
 
-FragTrap::FragTrap(FragTrap const& fragTrap)
+FragTrap::FragTrap(FragTrap const& fragTrap) : ClapTrap(fragTrap)
 {
 	*this = fragTrap;
 }
 
 FragTrap& FragTrap::operator=(FragTrap const& fragTrap)
 {
-	this->_name = fragTrap._name;
-	this->_energyPoints = fragTrap._energyPoints;
-	this->_hitPoints = fragTrap._hitPoints;
-	this->_attackDamage = fragTrap._attackDamage;
+	ClapTrap::operator=(fragTrap);
+
+	// this->_name = fragTrap._name;
+	// this->_energyPoints = fragTrap._energyPoints;
+	// this->_hitPoints = fragTrap._hitPoints;
+	// this->_attackDamage = fragTrap._attackDamage;
 
 	return *this;
 }

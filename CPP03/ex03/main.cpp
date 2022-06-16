@@ -10,11 +10,18 @@ int	main(void)
 	// delete ptr;
 
 
-	DiamondTrap test("evaluator");
+	DiamondTrap test("Katharina");
+
+	test.whoAmI();
+	test.printAttributes();
 	for (int i = 0; i != 3; i++)
-		test.attack("target");
+		test.attack("evaluator");
 	test.highFivesGuys();
 	test.beRepaired(2);
+
+	test.whoAmI();
+	test.printAttributes();
+
 
 	return 0;
 }
