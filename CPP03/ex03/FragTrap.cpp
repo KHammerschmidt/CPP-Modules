@@ -5,7 +5,10 @@ FragTrap::FragTrap()
 	std::cout << "Default constructor FragTrap called!" << std::endl;
 }
 
-FragTrap::~FragTrap() {}
+FragTrap::~FragTrap()
+{
+	std::cout << "Destructor FragTrap called!" << std::endl;
+}
 
 FragTrap::FragTrap(std::string name) : ClapTrap(name)
 {

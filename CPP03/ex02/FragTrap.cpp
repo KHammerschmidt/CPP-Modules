@@ -1,15 +1,23 @@
 #include "FragTrap.hpp"
 
-FragTrap::FragTrap()
+FragTrap::FragTrap() : ClapTrap()
 {
 	std::cout << "Default constructor FragTrap called!" << std::endl;
+
+	this->_name = "_frag_trap";
+	this->_hitPoints = 100;
+	this->_energyPoints = 100;
+	this->_attackDamage = 30;
 }
 
-FragTrap::~FragTrap() {}
+FragTrap::~FragTrap()
+{
+	std::cout << "Destructor FragTrap called!" << std::endl;
+}
 
 FragTrap::FragTrap(std::string name) : ClapTrap(name)
 {
-	std::cout << "Constructor FragTrap std::string name has been called!" << std::endl;
+	std::cout << "Name-Constructor FragTrap called!" << std::endl;
 	this->_name = name;
 	this->_hitPoints = 100;
 	this->_energyPoints = 100;

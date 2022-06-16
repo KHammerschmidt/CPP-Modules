@@ -3,31 +3,22 @@
 
 #include "FragTrap.hpp"
 #include "ScavTrap.hpp"
-#include <iostream>
-#include <string>
 
-class DiamondTrap : public FragTrap, ScavTrap
+class DiamondTrap : public FragTrap, public ScavTrap
 {
 	private:
 		std::string _name;
+
 	public:
 		DiamondTrap();
 		~DiamondTrap();
-		DiamondTrap(std::string &name);
+		DiamondTrap(std::string const name);
+
+		DiamondTrap(DiamondTrap const& diamondTrap);
+		DiamondTrap& operator=(const DiamondTrap& diamondTrap);
+
+		void attack(const std::string& target);
+		void whoAmI(void);
 };
-
-DiamondTrap::DiamondTrap()
-{
-}
-
-DiamondTrap::DiamondTrap(std::string& name)
-{
-	this->_name = name;
-}
-
-DiamondTrap::~DiamondTrap()
-{
-}
-
 
 #endif
