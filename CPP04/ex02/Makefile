@@ -1,4 +1,4 @@
-NAME = brain
+NAME = abstract
 FLAGS = -Wall -Werror -Wextra
 CC = c++
 SRC = main.cpp AAnimal.cpp Dog.cpp Cat.cpp Brain.cpp

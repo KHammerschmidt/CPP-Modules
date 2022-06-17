@@ -9,13 +9,15 @@
 class Cat : public AAnimal
 {
 	private:
-		Brain* _brainAttribute;
+		Brain* _brain;
 
 	public:
 		Cat();
 		~Cat();
 		Cat(const Cat& cat);
 		Cat& operator=(const Cat& cat);
+
+		void	makeSound(void) const;
 
 };
 

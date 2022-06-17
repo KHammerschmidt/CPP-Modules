@@ -34,5 +34,5 @@ void	AAnimal::setType(std::string type)
 
 void	AAnimal::makeSound(void) const
 {
-	std::cout << "I am a " << this->getType() << "!" << std::endl;
+	std::cout << "Animals can make many different noises!" << std::endl;
 }
