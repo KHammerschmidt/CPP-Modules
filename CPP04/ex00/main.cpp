@@ -11,16 +11,15 @@ int	main(void)
 	const Animal* i = new Cat();
 	const WrongAnimal* k = new WrongCat();
 
-	std::cout << j->getType() << std::endl;
-	std::cout << i->getType() << std::endl;
-	std::cout << meta->getType() << std::endl;
-	std::cout << k->getType() << std::endl;
+	std::cout << "j is a " << j->getType() << std::endl;
+	std::cout << "i is a " << i->getType() << std::endl;
+	std::cout << "meta is a " << meta->getType() << std::endl;
+	std::cout << "k is a " << k->getType() << std::endl;
 
 	j->makeSound();
 	i->makeSound();
 	meta->makeSound();
 	k->makeSound();
-
 
 	delete meta;
 	delete j;

@@ -13,6 +13,8 @@ class Cat : virtual public Animal
 		Cat(const Cat& cat);
 		Cat& operator=(const Cat& cat);
 
+		void	makeSound(void) const;
+
 };
 
 #endif

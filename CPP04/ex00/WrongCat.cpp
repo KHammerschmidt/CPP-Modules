@@ -21,3 +21,8 @@ WrongCat::WrongCat(const WrongCat& other)
 {
 	*this = other;
 }
+
+void	WrongCat::makeSound(void) const
+{
+	std::cout << "The wrong cat makes: oink!" << std::endl;
+}

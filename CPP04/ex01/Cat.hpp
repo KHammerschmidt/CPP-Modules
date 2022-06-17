@@ -6,15 +6,18 @@
 #include "Animal.hpp"
 #include "Brain.hpp"
 
-class Cat : virtual public Animal
+class Cat : public Animal
 {
 	private:
-		Brain* _brainAttribute;
+		Brain* _brain;
+
 	public:
 		Cat();
 		~Cat();
 		Cat(const Cat& cat);
 		Cat& operator=(const Cat& cat);
+
+		void	makeSound(void) const;
 
 };
 

@@ -21,3 +21,8 @@ Dog& Dog::operator=(const Dog& dog)
 	this->setType(dog.getType());
 	return *this;
 }
+
+void Dog::makeSound(void) const
+{
+	std::cout << "The dog makes: Wuff!" << std::endl;
+}	

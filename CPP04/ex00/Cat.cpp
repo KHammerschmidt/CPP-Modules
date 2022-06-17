@@ -22,3 +22,7 @@ Cat& Cat::operator=(const Cat& cat)
 	return *this;
 }
 
+void	Cat::makeSound(void) const
+{
+	std::cout << "The cat makes: Miau!" << std::endl;
+}
