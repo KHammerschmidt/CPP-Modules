@@ -2,17 +2,18 @@
 
 int	main(void)
 {
-	// ClapTrap*	ptr;
-	// ptr = new ScavTrap("Katharina");
+	// ClapTrap* ptr = new ScavTrap("NAME");
 
-	// ptr->attack("target");
+	// for (int i = 0; i < 3; i++)
+	// 	ptr->attack("OPPONENT");
 
+	// dynamic_cast<ScavTrap*>(ptr)->guardGate();
+	// ptr->beRepaired(2);
 	// delete ptr;
 
-
-	ScavTrap test("evaluator");
+	ScavTrap test("NAME");
 	for (int i = 0; i != 3; i++)
-		test.attack("target");
+		test.attack("OPPONENT");
 	test.guardGate();
 	test.beRepaired(2);
 

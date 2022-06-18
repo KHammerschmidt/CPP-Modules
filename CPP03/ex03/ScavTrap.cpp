@@ -24,6 +24,13 @@ ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 	this->_attackDamage= 20;
 }
 
+ScavTrap::ScavTrap(bool)
+{
+	std::cout << "Special-Constructor ScavTrap called!" << std::endl;
+
+	this->_energyPoints = 50;
+}
+
 ScavTrap::ScavTrap(ScavTrap const& scavTrap) : ClapTrap(scavTrap)
 {
 	*this = scavTrap;
@@ -32,11 +39,6 @@ ScavTrap::ScavTrap(ScavTrap const& scavTrap) : ClapTrap(scavTrap)
 ScavTrap& ScavTrap::operator=(ScavTrap const& scavTrap)
 {
 	ClapTrap::operator=(scavTrap);
-
-	// this->_name = scavTrap._name;
-	// this->_hitPoints = scavTrap._hitPoints;
-	// this->_energyPoints = scavTrap._energyPoints;
-	// this->_attackDamage = scavTrap._attackDamage;
 
 	return *this;
 }

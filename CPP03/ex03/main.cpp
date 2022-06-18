@@ -1,26 +1,29 @@
 #include "DiamondTrap.hpp"
 
+// name in attack function (ScavTrap Katharina_clap_name) why name wrong?
 int	main(void)
 {
-	// ClapTrap*	ptr;
-	// ptr = new ScavTrap("Katharina");
+	// ClapTrap* ptr;
+	// ptr = new DiamondTrap("Katharina");
 
-	// ptr->attack("target");
+	// for (int i = 0; i < 3; i++)
+	// 	ptr->attack("TARGET");
+
+	// dynamic_cast<DiamondTrap*>(ptr)->highFivesGuys();
+	// ptr->beRepaired(15);
+	// dynamic_cast<DiamondTrap*>(ptr)->whoAmI();
 
 	// delete ptr;
 
-
-	DiamondTrap test("Katharina");
+	DiamondTrap test("KATHARINA");
 
 	test.whoAmI();
-	test.printAttributes();
 	for (int i = 0; i != 3; i++)
-		test.attack("evaluator");
+		test.attack("EVALUATOR");
 	test.highFivesGuys();
 	test.beRepaired(2);
 
 	test.whoAmI();
-	test.printAttributes();
 
 
 	return 0;

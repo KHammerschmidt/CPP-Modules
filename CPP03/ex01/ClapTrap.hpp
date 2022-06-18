@@ -15,14 +15,14 @@ class ClapTrap
 	public:
 		ClapTrap(void);
 		ClapTrap(std::string name);
-		virtual ~ClapTrap();
-
 		ClapTrap(ClapTrap const& clapTrap);
 		ClapTrap& operator=(ClapTrap const& clapTrap);
 
-		virtual void	attack(const std::string& target);
-		void			takeDamage(unsigned int amount);
-		void			beRepaired(unsigned int amount);
+		virtual void attack(const std::string& target);
+		void takeDamage(unsigned int amount);
+		void beRepaired(unsigned int amount);
+
+		virtual ~ClapTrap();
 };
 
 #endif

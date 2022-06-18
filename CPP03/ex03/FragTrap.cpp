@@ -15,6 +15,14 @@ FragTrap::~FragTrap()
 	std::cout << "Destructor FragTrap called!" << std::endl;
 }
 
+FragTrap::FragTrap(bool)
+{
+	this->_hitPoints = 100;
+	this->_attackDamage = 30;
+
+	std::cout << "Special-Constructor FragTrap called." << std::endl;
+}
+
 FragTrap::FragTrap(std::string name) : ClapTrap(name)
 {
 	std::cout << "Name-Constructor FragTrap called!" << std::endl;
@@ -34,11 +42,6 @@ FragTrap::FragTrap(FragTrap const& fragTrap) : ClapTrap(fragTrap)
 FragTrap& FragTrap::operator=(FragTrap const& fragTrap)
 {
 	ClapTrap::operator=(fragTrap);
-
-	// this->_name = fragTrap._name;
-	// this->_energyPoints = fragTrap._energyPoints;
-	// this->_hitPoints = fragTrap._hitPoints;
-	// this->_attackDamage = fragTrap._attackDamage;
 
 	return *this;
 }

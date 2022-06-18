@@ -19,18 +19,19 @@ ClapTrap::ClapTrap(std::string name)
 
 ClapTrap::ClapTrap(ClapTrap const& clapTrap)
 {
-	std::cout << "Copy constructor ClapTrap called!" << std::endl;
-
 	*this = clapTrap;
+
+	std::cout << "Copy constructor ClapTrap called!" << std::endl;
 }
 
 ClapTrap& ClapTrap::operator=(ClapTrap const& clapTrap)
 {
-	std::cout << "ClapTrap copy assignment overload operator called!" << std::endl;
 	this->_name = clapTrap._name;
 	this->_hitPoints = clapTrap._hitPoints;
 	this->_energyPoints = clapTrap._energyPoints;
 	this->_attackDamage = clapTrap._attackDamage;
+
+	std::cout << "ClapTrap copy assignment overload operator called!" << std::endl;
 
 	return *this;
 }
@@ -63,12 +64,12 @@ void ClapTrap::beRepaired(unsigned int amount)
 {
 	if (this->_energyPoints >= 1)
 	{
-		std::cout << "ClapTrap " << this->_name << " repairs itself ";
-		std::cout << "and adds " << amount << " points to its health!";
-		std::cout << std::endl;
-
 		this->_hitPoints += amount;
 		this->takeDamage(1);
+
+		std::cout << "ClapTrap " << this->_name << " repairs itself by " << amount << " points. ";
+		std::cout << "Total health is now: " << this->_hitPoints << "!" << std::endl;
+
 	}
 	else
 	{

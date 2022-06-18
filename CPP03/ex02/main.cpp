@@ -2,19 +2,24 @@
 
 int	main(void)
 {
-	// ClapTrap*	ptr;
-	// ptr = new ScavTrap("Katharina");
+	ClapTrap*	ptr;
+	ptr = new FragTrap("Katharina");
 
-	// ptr->attack("target");
+	for (int i = 0; i < 3; i++)
+		ptr->attack("OPPONENT");
 
-	// delete ptr;
+	dynamic_cast<FragTrap*>(ptr)->highFivesGuys();
+	ptr->beRepaired(15);
 
+	delete ptr;
 
-	FragTrap test("evaluator");
-	for (int i = 0; i != 3; i++)
-		test.attack("target");
-	test.highFivesGuys();
-	test.beRepaired(2);
+	// FragTrap test("evaluator");
+	// for (int i = 0; i != 3; i++)
+	// 	test.attack("target");
+	// test.highFivesGuys();
+	// test.beRepaired(2);
+
+	// system ("leaks FragTrap");
 
 	return 0;
 }

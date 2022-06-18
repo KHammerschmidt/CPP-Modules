@@ -2,15 +2,15 @@
 
 int	main(void)
 {
-	ClapTrap clapTrap("test");
+	ClapTrap clapTrap("THIS_IS_MY_NAME");
 
 	for (int i = 0; i < 5; i++)
-		clapTrap.attack("test2");
+		clapTrap.attack("OPPONENT");
 
 	clapTrap.beRepaired(2);
 
 	for (int i = 0; i < 4; i++)
-		clapTrap.attack("test2");
+		clapTrap.attack("OPPONENT");
 
 	clapTrap.beRepaired(2);
 
