@@ -1,20 +1,22 @@
-#include "AAnimal.hpp"
 #include "Cat.hpp"
 #include "Dog.hpp"
-#include "Brain.hpp"
 
 int	main(void)
 {
-	const AAnimal* animal = new AAnimal();
+	// const AAnimal* animal = new AAnimal();
 	const AAnimal* j = new Dog();
 	const AAnimal* i = new Cat();
 
+	std::cout << "j is a " << j->getType() << std::endl;
+	std::cout << "i is a " << i->getType() << std::endl;
+
+	j->makeSound();
+	i->makeSound();
+
 	delete j;
 	delete i;
-	delete animal;
 
-
-	// system("leaks brain");
+	// system("leaks abstract");
 
 	return 0;
 }
