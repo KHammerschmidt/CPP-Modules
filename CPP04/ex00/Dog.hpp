@@ -5,18 +5,16 @@
 #include <string>
 #include "Animal.hpp"
 
-class Dog : virtual public Animal
+class Dog : public Animal
 {
-	private:
-
 	public:
 		Dog();
-		~Dog();
-
 		Dog(const Dog& dog);
 		Dog& operator=(const Dog& dog);
 
 		void makeSound(void) const;
+
+		~Dog();
 };
 
 #endif

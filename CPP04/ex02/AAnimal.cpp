@@ -32,7 +32,4 @@ void	AAnimal::setType(std::string type)
 	this->_type = type;
 }
 
-void	AAnimal::makeSound(void) const
-{
-	// std::cout << "Animals can make many different noises!" << std::endl;
-}
+void	AAnimal::makeSound(void) const {}

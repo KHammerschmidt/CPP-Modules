@@ -12,12 +12,11 @@ class	AAnimal
 	public:
 		AAnimal();
 		AAnimal(const AAnimal& animal);
+		AAnimal& operator=(const AAnimal& animal);
 
-		virtual AAnimal& operator=(const AAnimal& animal);
-
-		virtual std::string getType(void) const;
-		virtual void		setType(std::string type);
-		virtual void		makeSound(void) const = 0;
+		std::string  getType(void) const;
+		void		 setType(std::string type);
+		virtual void makeSound(void) const = 0;
 
 		virtual ~AAnimal();
 };

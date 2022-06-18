@@ -9,8 +9,8 @@ Brain& Brain::operator=(const Brain& other)
 {
 	for (int i = 0; i < 100; i++)
 		this->ideas[i] = other.ideas[i];
-	return *this;
 
+	return *this;
 }
 
 Brain::Brain()

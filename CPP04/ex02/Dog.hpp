@@ -10,14 +10,15 @@ class Dog : public AAnimal
 {
 	private:
 		Brain* _brain;
+
 	public:
 		Dog();
-		~Dog();
-
 		Dog(const Dog& dog);
 		Dog& operator=(const Dog& dog);
 
 		void makeSound(void) const;
+
+		~Dog();
 };
 
 #endif

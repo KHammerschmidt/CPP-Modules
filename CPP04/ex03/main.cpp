@@ -5,9 +5,11 @@
 #include "IMateriaSource.hpp"
 #include "MateriaSource.hpp"
 #include "Character.hpp"
+#include "Ground.hpp"
 
 int	main(void)
 {
+	Ground ground;
 	IMateriaSource* src = new MateriaSource();
 	src->learnMateria(new Ice());
 	src->learnMateria(new Cure());

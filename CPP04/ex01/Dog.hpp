@@ -6,6 +6,9 @@
 #include "Animal.hpp"
 #include "Brain.hpp"
 
+
+//getBrain einfügen
+
 class Dog : public Animal
 {
 	private:

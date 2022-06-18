@@ -36,19 +36,26 @@ Character& Character::operator=(const Character& other)
 
 std::string const& Character::getName(void) const {	return (this->_name); }
 
-
-
 void Character::unequip(int idx)
 {
+	// check idx > 4 < 0
 	if (this->_inventory[idx])
-		this->_inventory[idx] = NULL;	//nullptr forbidden?
+	{
+		Ground::Add(this->_inventory[idx]);
+		this->_inventory[idx] = NULL;
+	}
+
+	//class mit linked-list, immer wenn AMateria erstellt wird reinschreiben
+	// und wenn durch equip() inventar schon voll ist
+	//adresse vom pointer spreichern
+	//am ende alles löschen
 }
 
 void	Character::equip(AMateria* m)
 {
 	if (!m)
 		return ;
-	
+
 	for (int i = 0; i < 4; i++)
 	{
 		if (!this->_inventory[i])
