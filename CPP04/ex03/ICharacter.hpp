@@ -5,7 +5,6 @@
 #include <string>
 #include "AMateria.hpp"
 
-//prototype of class // pre declaration
 class AMateria;
 
 class ICharacter

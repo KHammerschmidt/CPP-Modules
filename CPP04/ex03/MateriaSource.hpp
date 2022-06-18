@@ -6,6 +6,8 @@
 #include "IMateriaSource.hpp"
 #include "AMateria.hpp"
 
+class AMateria;
+
 class MateriaSource : public IMateriaSource
 {
 private:
@@ -18,7 +20,7 @@ public:
 
 	void learnMateria(AMateria* m);
 	AMateria* createMateria(std::string const& type);
-	
+
 	virtual ~MateriaSource();
 };
 

@@ -41,7 +41,7 @@ void Character::unequip(int idx)
 	// check idx > 4 < 0
 	if (this->_inventory[idx])
 	{
-		Ground::Add(this->_inventory[idx]);
+		// Ground::Add(this->_inventory[idx]);
 		this->_inventory[idx] = NULL;
 	}
 

@@ -5,7 +5,7 @@
 #include "AMateria.hpp"
 #include "Ground.hpp"
 
-class Character;
+class AMateria;
 
 class Character : public ICharacter
 {

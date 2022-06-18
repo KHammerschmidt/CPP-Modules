@@ -2,7 +2,7 @@
 #define CURE_HPP
 
 #include "AMateria.hpp"
-#include "IMateriaSource.hpp"
+// #include "IMateriaSource.hpp"
 
 class Cure : public AMateria
 {

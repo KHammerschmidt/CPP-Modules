@@ -1,5 +1,30 @@
 #include "Ground.hpp"
 
+Ground::Ground()
+{
+	std::cout << "Default constructor Ground called." << std::endl;
+}
+
+Ground::~Ground()
+{
+	cleanUp();
+	std::cout << "Destructor Ground called." << std::endl;
+}
+
+Ground::Ground(const Ground& other)
+{
+	*this = other;
+}
+
+Ground& Ground::operator=(const Ground& other)
+{
+	this.node = other.node;
+	this.head = other.head;
+	this.current = other.current;
+
+	return *this;
+}
+
 void	Ground::Add(AMateria* materia)
 {
 	node* ptr = new node;
@@ -25,15 +50,4 @@ void	Ground::cleanUp(void)
 		delete tmp->save;
 		delete tmp;
 	}
-}
-
-Ground::Ground()
-{
-	std::cout << "Default constructor Ground called." << std::endl;
-}
-
-Ground::~Ground()
-{
-	cleanUp();
-	std::cout << "Destructor Ground called." << std::endl;
 }
