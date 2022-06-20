@@ -3,7 +3,7 @@
 Character::Character(std::string const name)
 	: _name(name), _inventory()
 {
-	std::cout << "Constructor Character called." << std::endl;
+	// std::cout << "Constructor Character called." << std::endl;
 }
 
 Character::~Character()
@@ -13,7 +13,7 @@ Character::~Character()
 		if (this->_inventory[i])
 			delete this->_inventory[i];
 	}
-	std::cout << "Destructor Character called." << std::endl;
+	// std::cout << "Destructor Character called." << std::endl;
 }
 
 Character::Character(const Character& other)
@@ -38,17 +38,13 @@ std::string const& Character::getName(void) const {	return (this->_name); }
 
 void Character::unequip(int idx)
 {
-	// check idx > 4 < 0
+	if (idx < 0 || idx >= 4)
+		return ;
 	if (this->_inventory[idx])
 	{
-		// Ground::Add(this->_inventory[idx]);
+		Ground::Add(this->_inventory[idx]);
 		this->_inventory[idx] = NULL;
 	}
-
-	//class mit linked-list, immer wenn AMateria erstellt wird reinschreiben
-	// und wenn durch equip() inventar schon voll ist
-	//adresse vom pointer spreichern
-	//am ende alles löschen
 }
 
 void	Character::equip(AMateria* m)
@@ -70,6 +66,11 @@ void	Character::equip(AMateria* m)
 
 void	Character::use(int idx, ICharacter& target)
 {
+	if (idx < 0 || idx >= 4 || !this->_inventory[idx])
+	{
+		std::cout << "No valid inventory spot!" << std::endl;
+		return ;
+	}
 	if (this->_inventory[idx])
 		this->_inventory[idx]->use(target);
 }

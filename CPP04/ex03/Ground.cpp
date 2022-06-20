@@ -2,13 +2,13 @@
 
 Ground::Ground()
 {
-	std::cout << "Default constructor Ground called." << std::endl;
+	// std::cout << "Default constructor Ground called." << std::endl;
 }
 
 Ground::~Ground()
 {
 	cleanUp();
-	std::cout << "Destructor Ground called." << std::endl;
+	// std::cout << "Destructor Ground called." << std::endl;
 }
 
 Ground::Ground(const Ground& other)
@@ -18,15 +18,17 @@ Ground::Ground(const Ground& other)
 
 Ground& Ground::operator=(const Ground& other)
 {
-	this.node = other.node;
-	this.head = other.head;
-	this.current = other.current;
+	this->head = other.head;
+	this->current = other.current;
 
 	return *this;
 }
 
 void	Ground::Add(AMateria* materia)
 {
+	if (materia == NULL)
+		return ;
+
 	node* ptr = new node;
 
 	if (head == NULL)
@@ -50,4 +52,9 @@ void	Ground::cleanUp(void)
 		delete tmp->save;
 		delete tmp;
 	}
+
+	// std::cout << "Inventory cleaned up!" << std::endl;
 }
+
+Ground::node* Ground::head = NULL;
+Ground::node* Ground::current = NULL;

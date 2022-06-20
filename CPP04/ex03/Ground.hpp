@@ -13,6 +13,7 @@ class Ground
 			node* next;
 			AMateria* save;
 		};
+
 		static node* head;
 		static node* current;
 
@@ -23,7 +24,7 @@ class Ground
 		Ground& operator=(const Ground& other);
 
 		static void Add(AMateria* materia);
-		void		cleanUp(void);
+		static void	cleanUp(void);
 };
 
 #endif
