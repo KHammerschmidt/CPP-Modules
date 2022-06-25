@@ -20,7 +20,7 @@ ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationF
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(std::string target) 
-	: Form("Shrubbery Creation Form Default", 145, 137)
+	: Form("Shrubbery Creation Form", 145, 137)
 {
 	this->_target = target + "_shrubbery";
 }

@@ -1,6 +1,10 @@
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat() : _name("no name"), _grade(150) {} 
+Bureaucrat::Bureaucrat() : _name("no name"), _grade(150)
+{
+	std::cout << this->_name << " bureaucrat has been created!" << std::endl;
+} 
+
 Bureaucrat::~Bureaucrat() {}
 const std::string Bureaucrat::getName(void) const { return this->_name; }
 int Bureaucrat::getGrade(void) const { return this->_grade; }
@@ -11,6 +15,7 @@ Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name), _grade(grade)
 		throw GradeTooHighException();
 	else if (this->_grade > 150)
 		throw GradeTooLowException();
+	std::cout << this->_name << " bureaucrat has been created!" << std::endl;
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat& other)

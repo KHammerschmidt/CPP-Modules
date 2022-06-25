@@ -38,6 +38,5 @@ Form*	Intern::makeForm(std::string name, std::string target)
 
 const char* Intern::FormException::what() const throw()
 {
-	return ("Exception: invalid form type requested.
-	Valid form requests are: Shrubbery, Robotomy, Presidential");
+	return ("Exception: invalid form type requested. Valid form requests are: Shrubbery, Robotomy, Presidential");
 }
