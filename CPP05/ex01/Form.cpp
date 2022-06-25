@@ -1,5 +1,7 @@
 #include "Form.hpp"
 
+Form::Form(void) : _name("no name"), _signed(false), _gradeSign(150), _gradeExec(150) {}
+
 Form::Form(std::string name, int signInt, int execInt)
 	: _name(name), _signed(false), _gradeSign(signInt), _gradeExec(execInt)
 {
@@ -56,10 +58,10 @@ std::ostream& operator<<(std::ostream& os, const Form& form)
 
 const char* Form::GradeTooHighException::what() const throw()
 {
-	return ("GradeTooHighException");
+	return ("Exception: grade too high");
 }
 
 const char* Form::GradeTooLowException::what() const throw()
 {
-	return ("GradeTooLowException");
+	return ("Exception: grade too low");
 }

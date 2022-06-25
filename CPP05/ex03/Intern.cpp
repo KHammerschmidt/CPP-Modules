@@ -25,7 +25,7 @@ Form*	Intern::makeForm(std::string name, std::string target)
 		default :
 		{
 			throw FormException();
-			return NULL;
+			break ;
 		}
 		case 0 :
 			return (new ShrubberyCreationForm(target));
@@ -38,5 +38,6 @@ Form*	Intern::makeForm(std::string name, std::string target)
 
 const char* Intern::FormException::what() const throw()
 {
-	return ("Invalid Form Type requested");
+	return ("Exception: invalid form type requested.
+	Valid form requests are: Shrubbery, Robotomy, Presidential");
 }

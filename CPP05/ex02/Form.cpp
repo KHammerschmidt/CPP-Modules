@@ -58,17 +58,17 @@ std::ostream& operator<<(std::ostream& os, const Form& form)
 
 const char* Form::GradeTooHighException::what() const throw()
 {
-	return ("GradeTooHighException");
+	return ("Exception: grade too high");
 }
 
 const char* Form::GradeTooLowException::what() const throw()
 {
-	return ("GradeTooLowException");
+	return ("Exception: grade too low");
 }
 
 const char* Form::NotSignedException::what() const throw()
 {
-	return ("NotSignedException");
+	return ("Exception: Form not signed");
 }
 
 void Form::execute(Bureaucrat const& executor) const

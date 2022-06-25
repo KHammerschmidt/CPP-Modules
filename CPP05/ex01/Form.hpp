@@ -15,9 +15,9 @@ private:
 	bool				_signed;
 	const int			_gradeSign;
 	const int			_gradeExec;
-	Form();
 
 public:
+	Form();
 	Form(std::string name, int signInt, int execInt);
 	Form(const Form& other);
 	Form& operator=(const Form& other);

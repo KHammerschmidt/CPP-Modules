@@ -1,8 +1,8 @@
 #include "ShrubberyCreationForm.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm() : Form() 
+ShrubberyCreationForm::ShrubberyCreationForm() : Form("Shrubbery Creation Form", 145, 137) 
 {
-	this->_target = "none";
+	this->_target = "no target";
 }
 
 ShrubberyCreationForm::~ShrubberyCreationForm() {}
@@ -23,7 +23,6 @@ ShrubberyCreationForm::ShrubberyCreationForm(std::string target)
 	: Form("Shrubbery Creation Form Default", 145, 137)
 {
 	this->_target = target + "_shrubbery";
-	// std::cout << this->_target << ": Shrubbery Creation Form has been created" << std::endl;
 }
 
 void	ShrubberyCreationForm::executeSubForm(void) const

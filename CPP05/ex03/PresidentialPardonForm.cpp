@@ -5,12 +5,14 @@ PresidentialPardonForm::PresidentialPardonForm() : Form("Presidential Pardon For
 	this->_target = "no target";
 }
 
-PresidentialPardonForm::PresidentialPardonForm(std::string target) : Form("Presidential Pardon Form", 25, 5)
+PresidentialPardonForm::PresidentialPardonForm(std::string target) 
+	: Form("Presidential Pardon Form", 25, 5)
 {
 	this->_target = target;
 }
 
-PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm& copy) : Form("Presidential Pardon Form", 25, 5)
+PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm& copy)
+	: Form("Presidential Pardon Form", 25, 5)
 {
 	*this = copy;
 }
