@@ -3,6 +3,10 @@
 
 #include <iostream>
 #include <string>
+// #include <limits>
+// #include <numeric_limits>
+#include <cstdlib>
+#include <cctype>
 
 enum { C, I, F, D};
 
@@ -28,16 +32,22 @@ class Convert
 		double	getDouble(void) const;
 
 		bool	isChar(std::string input);
+		bool	isInt(std::string input);
+		bool	isFloat(std::string input);
+		bool	isDouble(std::string input);
 
-		void	convertToChar(std::string input);
-		// void	convertToInt(std::string input);
-		// void	convertToFloat(std::string input);
-		// void	convertToDouble(std::string input);
+		void	convertChar(std::string str);
+		void	convertInt(std::string str);
+		void	convertFloat(std::string str);
+		void	convertDouble(std::string str);
+
+		void	printChar() const;
+		void	printInt() const;
+		void	printFloat() const;
+		void	printDouble() const;
 
 		void	convertScalarTypes(std::string input);
 		int		fetchScalarType(std::string input);
 };
-
-std::ostream& operator<<(std::ostream& os, const Convert& convert);
 
 #endif

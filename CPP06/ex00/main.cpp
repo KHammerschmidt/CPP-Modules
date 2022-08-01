@@ -10,8 +10,7 @@ int	main(int argc, char **argv)
 
 	Convert convert(argv[1]);
 
-	convert.convertToChar(argv[1]);
-	std::cout << convert << std::endl;
+	convert.convertScalarTypes(argv[1]);
 
 	return 0;
 }
