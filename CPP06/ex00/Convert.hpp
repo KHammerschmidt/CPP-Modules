@@ -19,7 +19,7 @@ class Convert
 		double	_d;
 
 		const std::string _input;
-	
+
 	public:
 		Convert(std::string input);
 		~Convert();
@@ -41,6 +41,7 @@ class Convert
 		void	convertFloat(std::string str);
 		void	convertDouble(std::string str);
 
+		void	printTypes() const;
 		void	printChar() const;
 		void	printInt() const;
 		void	printFloat() const;

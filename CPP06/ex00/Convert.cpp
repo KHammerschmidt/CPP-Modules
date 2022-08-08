@@ -59,15 +59,15 @@ void	Convert::convertScalarTypes(std::string input)
 			return ;
 		}
 	}
-	printChar();
-	printInt();
-	printFloat();
-	printDouble();
+	printTypes();
 }
+
+static const std::string pseudoLitsFloat[] = {"-inff", "+inff", "nanf"};
+static const std::string pseudoLitsDouble[] = {"-inf", "+inf", "nan"};
 
 bool	Convert::isChar(std::string str)
 {
-	//check if it is only one character // check if 
+	//check if it is only one character // check if
 	if (str.length() > 1 || std::isdigit(str[0]))
 		return false;
 	std::cout << "Input is of type char!" << std::endl;
@@ -91,6 +91,14 @@ bool	Convert::isInt(std::string str)
 
 bool Convert::isFloat(std::string str)
 {
+	for (int i = 0; i < 3; i++)
+	{
+		if (str.compare(pseudoLitsFloat[i]) == 0)
+		{
+			std::cout << "Input is of type float!" << std::endl;
+			return true;
+		}
+	}
 	size_t dot = str.find('.');
 	if (dot == std::string::npos)
 		return false;
@@ -99,18 +107,28 @@ bool Convert::isFloat(std::string str)
 		return false;
 	if (str.find('f') != str.length() - 1)
 		return false;
-	
+
 	std::cout << "Input is of type float!" << std::endl;
 	return true;
 }
 
 bool Convert::isDouble(std::string str)
 {
+	for (int i = 0; i < 3; i++)
+	{
+		if (str.compare(pseudoLitsDouble[i]) == 0)
+		{
+			std::cout << "Input is of type double!" << std::endl;
+			return true;
+		}
+	}
 	size_t dot = str.find('.');
 	if (dot == std::string::npos)
 		return false;
 	// check for invalid input with two dots
 	if (str.find('.', dot + 1) != std::string::npos)
+		return false;
+	if (str.find('f'))
 		return false;
 	std::cout << "Input is of type double!" << std::endl;
 	return true;
@@ -148,6 +166,14 @@ void Convert::convertDouble(std::string str)
 	this->_f = static_cast<float>(this->_d);
 }
 
+void	Convert::printTypes(void) const
+{
+	printChar();
+	printInt();
+	printFloat();
+	printDouble();
+}
+
 void	Convert::printChar(void) const
 {
 	//check if char is printable // best converted to unsigned char first
@@ -156,6 +182,7 @@ void	Convert::printChar(void) const
 	else
 		std::cout << "char: " << this->getChar() << std::endl;
 }
+
 
 void	Convert::printInt(void) const
 {
@@ -179,7 +206,7 @@ void	Convert::printDouble(void) const
 // long int 		8bytes 		-2,147,483,648	to 	2,147,483,647
 // long long int 	8bytes 		-(2^63) 		to 	(2^63)-1
 // int 				4bytes 		-2,147,483,648 	to 	2,147,483,647
-// float 			4bytes 	
+// float 			4bytes
 // double 			8bytes
 // long double 		12bytes
 
