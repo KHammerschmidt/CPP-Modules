@@ -1,12 +1,13 @@
 #include "Convert.hpp"
 
-Convert::Convert(std::string input) : _input(input) {}
+Convert::Convert(std::string input) : _input(input), _flag(0) {}
 Convert::~Convert() {}
 
 char	Convert::getChar(void) const { return this->_c; }
 int		Convert::getInt(void) const { return this->_i; }
 float	Convert::getFloat(void) const { return this->_f; }
 double	Convert::getDouble(void) const { return this->_d; }
+int		Convert::getFlag(void) const { return this->_flag; }
 
 Convert::Convert(const Convert& copy)
 {
@@ -19,6 +20,7 @@ Convert& Convert::operator=(const Convert& other)
 	this->_i = other.getInt();
 	this->_f = other.getFloat();
 	this->_d = other.getDouble();
+	this->_flag = other.getFlag();
 
 	return *this;
 }
@@ -91,6 +93,18 @@ bool	Convert::isInt(std::string str)
 
 bool Convert::isFloat(std::string str)
 {
+	size_t dot = str.find('.');
+	//check for dot, multiple dots and f at the end
+
+	if (dot != std::string::npos && (str.find('.', dot + 1) == std::string::npos)
+		&& isdigit(str[dot + 1]) && (str.find('f') == str.length() - 1))
+		{
+			std::cout << "Input is of type float!" << std::endl;
+			return true;
+		}
+	std::cout << "Float: dot/f/digit check				[√]" << std::endl;
+
+	// check for pseudo literals
 	for (int i = 0; i < 3; i++)
 	{
 		if (str.compare(pseudoLitsFloat[i]) == 0)
@@ -99,21 +113,32 @@ bool Convert::isFloat(std::string str)
 			return true;
 		}
 	}
-	size_t dot = str.find('.');
-	if (dot == std::string::npos)
-		return false;
-	// check for invalid input with two dots
-	if (str.find('.', dot + 1) != std::string::npos)
-		return false;
-	if (str.find('f') != str.length() - 1)
-		return false;
+	std::cout << "Float: check for pseudo literals			[√]" << std::endl << std::endl;
+	return false;
+}
 
-	std::cout << "Input is of type float!" << std::endl;
+bool	Convert::compareDigits(std::string str)
+{
+	for (size_t i = 0; i < str.length(); i++)
+	{
+		if (isdigit(str[i]))
+			return false;
+	}
+	printf("HERE\n");
 	return true;
 }
 
 bool Convert::isDouble(std::string str)
 {
+	size_t dot = str.find('.');
+	if (dot != std::string::npos && str.find('.', dot + 1) == std::string::npos
+		&& compareDigits(str) && str.find('f') )
+	{
+		std::cout << "Input is of type double!" << std::endl;
+		return true;
+	}
+	std::cout << "Double: dot/digit check					[√]" << std::endl;
+
 	for (int i = 0; i < 3; i++)
 	{
 		if (str.compare(pseudoLitsDouble[i]) == 0)
@@ -122,16 +147,8 @@ bool Convert::isDouble(std::string str)
 			return true;
 		}
 	}
-	size_t dot = str.find('.');
-	if (dot == std::string::npos)
-		return false;
-	// check for invalid input with two dots
-	if (str.find('.', dot + 1) != std::string::npos)
-		return false;
-	if (str.find('f'))
-		return false;
-	std::cout << "Input is of type double!" << std::endl;
-	return true;
+	std::cout << "Double: pseudo literals check				[√]" << std::endl << std::endl;
+	return false;
 }
 
 void	Convert::convertChar(std::string str)

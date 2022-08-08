@@ -19,6 +19,7 @@ class Convert
 		double	_d;
 
 		const std::string _input;
+		int		_flag;
 
 	public:
 		Convert(std::string input);
@@ -30,6 +31,7 @@ class Convert
 		int		getInt(void) const;
 		float	getFloat(void) const;
 		double	getDouble(void) const;
+		int		getFlag(void) const;
 
 		bool	isChar(std::string input);
 		bool	isInt(std::string input);
@@ -48,6 +50,9 @@ class Convert
 		void	printDouble() const;
 
 		void	convertScalarTypes(std::string input);
+
+
+		bool	compareDigits(std::string str);
 		int		fetchScalarType(std::string input);
 };
 
