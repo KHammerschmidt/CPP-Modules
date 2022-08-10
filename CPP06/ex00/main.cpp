@@ -9,8 +9,13 @@ int	main(int argc, char **argv)
 	}
 
 	Convert convert(argv[1]);
-
-	convert.convertScalarTypes(argv[1]);
-
+	try
+	{
+		convert.convertScalarTypes();
+	}
+	catch (const std::exception& e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
 	return 0;
 }

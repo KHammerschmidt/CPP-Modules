@@ -2,11 +2,17 @@
 #define CONVERT_HPP
 
 #include <iostream>
-#include <string>
+#include <climits>
 #include <limits>
-// #include <numeric_limits>
-#include <cstdlib>
-#include <cctype>
+#include <iomanip>
+#include <stdexcept>
+#include <cmath>
+#include <ctgmath>
+
+// #include <string>
+// #include <cctype>
+// #include <cstdlib>
+
 
 enum { C, I, F, D};
 
@@ -16,17 +22,10 @@ class Convert
 		std::string _input;
 		double		_val;
 		int			_scalarType;
-
-
-		// std::string	_pseudo;
-		// char	_c;
-		// int		_i;
-		// float	_f;
-		// double	_d;
-
-		// const std::string _input;
-		// std::string _pseudo;
-		// int		_flag;
+		char		_c;
+		int			_i;
+		float		_f;
+		double		_d;
 
 	public:
 		Convert(std::string input);
@@ -34,38 +33,45 @@ class Convert
 		Convert(const Convert& copy);
 		Convert& operator=(const Convert& other);
 
-		// char	getChar(void) const;
-		// int		getInt(void) const;
-		// float	getFloat(void) const;
-		// double	getDouble(void) const;
-		// int		getFlag(void) const;
+		char	getChar(void) const;
+		int		getInt(void) const;
+		float	getFloat(void) const;
+		double	getDouble(void) const;
+		int		getFlag(void) const;
 
-		bool	isChar(std::string input);
-		bool	isInt(std::string input);
-		bool	isFloat(std::string input);
-		bool	isDouble(std::string input);
+		bool	isChar(void);
+		bool	isInt(void);
+		bool	isFloat(void);
+		bool	isDouble(void);
 
-		void	convertChar(std::string str);
-		void	convertInt(std::string str);
-		void	convertFloat(std::string str);
-		void	convertDouble(std::string str);
+		void	convertChar(void);
+		void	convertInt(void);
+		void	convertFloat(void);
+		void	convertDouble(void);
 
-		// void	printTypes() const;
-		// void	printChar() const;
-		// void	printInt() const;
-		// void	printFloat() const;
-		// void	printDouble() const;
+		void	convertScalarTypes(void);
+		int		fetchScalarType(void);
 
-		void	convertScalarTypes(std::string input);
+		bool	comparePseudoLitsFloat(void) const;
+		bool	comparePseudoLitsDouble(void) const;
+		bool	checkDigitsDouble(std::string str, size_t len);
+		bool	checkDigits(void);
+		bool	limitTestInt(void) const;
 
-		bool	comparePseudoLitsFloat(std::string str);
-		bool	compareDigits(std::string str, size_t len);
-		void	fetchScalarType(std::string input);
+		void	printTypes() const;
+		void	printChar() const;
+		void	printInt() const;
+		void	printFloat() const;
+		void	printDouble() const;
 
-		bool	checkDigits(std::string str);
-		bool	limitTestInt(int i) const;
+		class InvalidInputException : public std::exception
+		{
+			public:
+				const char* what() const throw();
+		};
 };
 
-// void operator>>();
+std::ostream& operator<<(std::ostream& cout, const Convert& convert);
+
 
 #endif
