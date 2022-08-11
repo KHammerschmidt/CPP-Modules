@@ -1,9 +1,6 @@
 #include "Base.hpp"
 
 Base::~Base() {}
-A::A(){}
-B::B(){}
-C::C(){}
 
 Base* generate(void)
 {
@@ -23,17 +20,32 @@ Base* generate(void)
 
 void identify(Base* p)
 {
-	Base* ptr; // = dynamic_cast<A>(ptr);
-	if (ptr = dynamic_cast<A>(ptr)) //ptr != nullptr)
-		std::cout << "type A" << std::endl;
-	else if
-
-	if (dynamic_cast<A>(ptr))
-
-
+	if ((dynamic_cast<A*>(p) != nullptr))
+		std::cout << "Pointer check: type A" << std::endl;
+	if ((dynamic_cast<B *>(p) != nullptr))
+		std::cout << "Pointer check: type B" << std::endl;
+	if ((dynamic_cast<C *>(p) != nullptr))
+		std::cout << "Pointer check: type C" << std::endl;
 }
 
 void identify(Base& p)
 {
-
+	try
+	{
+		(void) dynamic_cast<A&>(p);
+		std::cout << "Reference check: Type A" << std::endl;
+	}
+	catch (std::exception &e) {}
+	try
+	{
+		(void) dynamic_cast<B&>(p);
+		std::cout << "Reference check: Type B" << std::endl;
+	}
+	catch (std::exception &e) {}
+	try
+	{
+		(void) dynamic_cast<C&>(p);
+		std::cout << "Reference check: Type C" << std::endl;
+	}
+	catch (std::exception &e) {}
 }

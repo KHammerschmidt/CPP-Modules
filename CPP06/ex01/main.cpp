@@ -17,6 +17,6 @@ void	testFunction(void)
 int main(void)
 {
 	testFunction();
-	system("leaks uintptr");
+	// system("leaks uintptr");
 	return (0);
 }

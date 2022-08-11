@@ -8,8 +8,8 @@ int		Convert::getInt(void) const { return this->_i; }
 float	Convert::getFloat(void) const { return this->_f; }
 double	Convert::getDouble(void) const { return this->_d; }
 
-static const std::string pseudoLitsFloat[] = {"-inff", "+inff", "nanf"};
-static const std::string pseudoLitsDouble[] = {"-inf", "+inf", "nan"};
+static const std::string pseudoLitsFloat[] = {"-inff", "+inff", "nanf", "inff"};
+static const std::string pseudoLitsDouble[] = {"-inf", "+inf", "nan", "inf"};
 
 Convert::Convert(const Convert& copy)
 {
@@ -121,34 +121,29 @@ void	Convert::convertInt(void)
 
 	this->_i = static_cast<int>(this->_val);
 	this->_c = static_cast<char>(this->_i);
-	this->_f = static_cast<float>(this->_i);
-	this->_d = static_cast<double>(this->_i);
+	if (limitTestInt())
+	{
+		this->_f = static_cast<float>(this->_i);
+		this->_d = static_cast<double>(this->_i);
+	}
+	else
+	{
+		this->_f = static_cast<float>(this->_val);
+		this->_d = static_cast<double>(this->_val);
+	}
 }
 
 void	Convert::convertFloat(void)
 {
 	this->_val = std::strtod(this->_input.c_str(), NULL);
-	// if (this->_val == HUGE_VAL)
-	// {
-	// 	this->_f = std::numeric_limits<float>::max();
-	// 	std::cout << std::numeric_limits<float>::max() << std::endl;
-	// 	std::cout << "HERE" << std::endl;
-	// }
-	// else if (this->_val == -HUGE_VAL)
-	// {
-	// 	this->_f = std::numeric_limits<float>::min();
-	// 	std::cout << "HERE2" << std::endl;
-	// }
-	// else
-	// {
-	// 	std::cout << "HERE3" << std::endl;
-	// 	this->_f = static_cast<float>(this->_val);
-	// }
-
 	this->_f = static_cast<float>(this->_val);
 	this->_c = static_cast<char>(this->_f);
 	this->_i = static_cast<int>(this->_f);
-	this->_d = static_cast<double>(this->_f);
+
+	if (this->_f < std::numeric_limits<float>::max() || this->_f > std::numeric_limits<float>::min())
+		this->_d = static_cast<double>(this->_f);
+	else
+		this->_d = static_cast<double>(this->_val);
 }
 
 void Convert::convertDouble(void)
@@ -181,15 +176,17 @@ void	Convert::printInt(void) const
 	if (limitTestInt())
 		std::cout << "Int: " << this->getInt() << std::endl;
 	else
-		std::cout << "int: impossible" << std::endl;
+		std::cout << "int: Impossible" << std::endl;
 }
 
 void	Convert::printChar(void) const
 {
-	if (!std::isprint(this->_c))
-		std::cout << "char: Non displayable" << std::endl;
-	else if (!isascii(this->_c))
+	if (!isascii(this->_c) || this->_val > std::numeric_limits<char>::max()
+		|| this->_val < std::numeric_limits<char>::min()
+		|| comparePseudoLitsDouble() || comparePseudoLitsFloat())
 		std::cout << "char: Impossible" << std::endl;
+	else if (!std::isprint(this->_c))
+		std::cout << "char: Non displayable" << std::endl;
 	else
 		std::cout << "char: " << this->getChar() << std::endl;
 }
@@ -228,7 +225,7 @@ bool	Convert::checkDigits(void)
 
 bool	Convert::comparePseudoLitsFloat(void) const
 {
-	for (int i = 0; i < 3; i++)
+	for (int i = 0; i < 4; i++)
 	{
 		if (this->_input.compare(pseudoLitsFloat[i]) == 0)
 			return true;
@@ -238,7 +235,7 @@ bool	Convert::comparePseudoLitsFloat(void) const
 
 bool	Convert::comparePseudoLitsDouble(void) const
 {
-	for (int i = 0; i < 3; i++)
+	for (int i = 0; i < 4; i++)
 	{
 		if (this->_input.compare(pseudoLitsDouble[i]) == 0)
 			return true;
