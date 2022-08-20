@@ -1,4 +1,3 @@
-#include "easyfind.hpp"
 
 const char* NotFound::what() const throw()
 {
@@ -6,16 +5,10 @@ const char* NotFound::what() const throw()
 }
 
 template<typename T>
-typename T::iterator easyfind(T var, int val)
+T	easyfind(std::vector<T>& var, int val)
 {
-	typename T::iterator it = std::find(var.begin(), var.end(), val);
-	for (typename T::iterator it = var.begin(); it != var.end(); it++)
-	{
-		if (*it == val)
-			return it;
-	}
+	typename std::vector<T>::iterator it = std::find(var.begin(), var.end(), val);
 	if (it == var.end())
 		throw NotFound();
-
-	return it;
+	return *it;
 }

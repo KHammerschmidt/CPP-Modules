@@ -18,6 +18,7 @@ class Span
 		~Span();
 
 		void	addNumber(int num);
+		void	addManyNumbers(int num);
 		int		shortestSpan();
 		int		longestSpan();
 

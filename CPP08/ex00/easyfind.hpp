@@ -10,8 +10,7 @@ struct NotFound : public std::exception
 	const char* what() const throw();
 };
 
-template<typename T> typename T::iterator easyfind(T var, int val);
-
+template<typename T> T easyfind(std::vector<T>& var, int val);
 #include "easyfind.tpp"
 
 #endif
