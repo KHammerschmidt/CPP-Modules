@@ -34,27 +34,52 @@ int	Span::shortestSpan(void)
 	if (this->_values.size() < 2)
 		throw std::out_of_range("No span possible");
 
-	int	val;
-	int span = 0;
-	std::vector<int>Spans;
+	int	val = 0;
+	int spanOld = 0;
+	int	spanNew = 0;
+	// std::vector<int>Spans;
 	std::sort(this->_values.begin(), this->_values.end());	//sorting all numbers in vector
 	std::vector<int>::iterator itr = _values.begin();		//determine start of iterator
 
 	for (itr = _values.begin(); itr != _values.end(); itr++)
 	{
-		span = (*itr + 1) - *itr;
-		if (itr == _values.begin())
-			val = *itr;
-		else
+		if (itr != _values.begin())
 		{
-			span = *itr - val;
-			std::cout << span << std::endl;
-			Spans.push_back(*itr - val);
-			std::cout << *itr - val << std::endl;
-			val = *itr;
-
+			spanOld = std::abs((val) - *itr);
+			if (spanOld < spanNew || spanNew == 0)
+				spanNew = spanOld;
+			std::cout << "SpanOld: " << spanOld << " spanNew: " << spanNew << std::endl;
+			std::cout << "Itr value vector: " << *itr << " Value: " << val << "  spanNew: " << spanNew << std::endl;
 		}
+		val = *itr;
 	}
+
+
+
+	// {
+	// 	if (itr != _values.begin())
+	// 	{
+	// 		std::cout << "Here" << std::endl;
+	// 		val = _values[*itr + 1] - _values[*itr];
+	// 	}
+	// 	std::cout << "first value: " << _values[*itr + 1] << "  second value: " << _values[*itr + 1] << std::endl;
+	// 	// val = (*itr + 1) - *itr;
+	// 	if (val < span)
+	// 		span = val;
+	// 	// else
+	// 	// {
+	// 	// 	span = *itr - val;
+	// 	// 	std::cout << span << std::endl;
+	// 	// 	Spans.push_back(*itr - val);
+	// 	// 	std::cout << *itr - val << std::endl;
+	// 	// 	val = *itr;
+
+	// 	// }
+	// 	// if (itr == _values.begin())
+	// 	// 	val = *itr;
+	// 	std::cout << val << std::endl;
+	// 	std::cout << span << std::endl;
+	// }
 
 	// std::sort(Spans.begin(), Spans.end());
 	// std::cout << Spans.begin() << std::endl;

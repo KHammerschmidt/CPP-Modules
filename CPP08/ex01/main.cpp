@@ -6,11 +6,11 @@ int	main(void)
 
 	try
 	{
-		sp.addNumber(-2);
-		sp.addNumber(13);
-		sp.addNumber(24);
-		sp.addNumber(15);
-		sp.addNumber(-100);
+		sp.addNumber(6);
+		sp.addNumber(3);
+		sp.addNumber(17);
+		sp.addNumber(9);
+		sp.addNumber(11);
 	}
 	catch(std::exception& e)
 	{
