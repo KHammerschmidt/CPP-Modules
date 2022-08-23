@@ -7,6 +7,10 @@
 #include <cmath>
 #include <cstdlib>
 
+# include <string>
+# include <algorithm>
+
+
 class Span
 {
 	private:
@@ -20,7 +24,7 @@ class Span
 		~Span();
 
 		void	addNumber(int num);
-		void	addMoreNumbers(int num);
+		void	addNumber(std::vector<int>::iterator a, std::vector<int>::iterator b);
 		void	addManyNumbers(int num);
 		int		shortestSpan();
 		int		longestSpan();
