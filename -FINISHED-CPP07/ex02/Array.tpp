@@ -57,7 +57,7 @@ Array<T>& Array<T>::operator=(const Array<T>& other)
 template<typename T>
 T&	Array<T>::operator[](unsigned int const pos) const
 {
-	if (pos >= this->_size || pos < 0)
+	if (pos >= this->_size)
 		throw std::out_of_range("Index inaccessable");
 	return this->_arr[pos];
 }
@@ -67,9 +67,15 @@ std::ostream& operator<<(std::ostream& cout, const Array<T>& input)
 {
 	if (input.size() == 0)
 		return cout;
-	for (unsigned int i = 0; i <= input.size(); i++)
-		cout << input._arr[i] << " | ";
+	for (unsigned int i = 0; i < input.size(); i++)
+		cout << input.getArrI(i) << " | ";
 	cout << std::endl;
 
 	return cout;
+}
+
+template<typename T>
+T Array<T>::getArrI(unsigned int i) const
+{
+	return _arr[i];
 }

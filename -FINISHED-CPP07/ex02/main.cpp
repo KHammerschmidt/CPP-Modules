@@ -63,28 +63,22 @@ int main(void)
 		Array<int>test(d);
 		std::cout << "size: " << d.size() << std::endl;
 		for(int i = 0; i < 10; i++)
-		{
 			d[i] = i;
-			std::cout << "Value: " << d[i] << std::endl;
-		}
+		std::cout << d << std::endl;
 
 		std::cout << std::endl << "S E C O N D  T E S T:  F L O A T  A R R A Y" << std::endl;
     	Array<float>f(5);
 		std::cout << "size: " << f.size() << std::endl;
 		for(float i = 0.0f; i < 5; i++)
-		{
 			f[i] = i+0.123f;
-			std::cout << "Value: " << f[i] << std::endl;
-		}
+		std::cout << f << std::endl;
 
         std::cout << std::endl << "T H I R D  T E S T:  S T R I N G  A R R A Y" << std::endl;
         Array<std::string>s(3);
         std::cout << "size: " << s.size() << std::endl;
         for (size_t i = 0; i < 3; i++)
-        {
             s[i] = "A";
-            std::cout << "Value: " << s[i] << std::endl;
-        }
+		std::cout << s << std::endl;
 
 		std::cout << std::endl << "F O U R T H  T E S T: O U T  O F  B O U N D S  T E S T" << std::endl;
 

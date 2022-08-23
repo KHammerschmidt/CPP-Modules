@@ -22,6 +22,8 @@ class Array
 		T&	operator[](unsigned int const pos) const;
 
 		unsigned int size(void) const;
+
+		T	getArrI(unsigned int i) const;
 };
 
 template<typename T>
