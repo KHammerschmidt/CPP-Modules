@@ -1,7 +1,7 @@
 NAME = mutantStack
 FLAGS = -Wall -Werror -Wextra
 CC = c++
-SRC = main.cpp Span.cpp
+SRC = main.cpp
 OBJ = $(SRC:.cpp=.o)
 
 all: $(NAME)
