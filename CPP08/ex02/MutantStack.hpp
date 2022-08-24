@@ -19,15 +19,14 @@ public:
 	typedef typename std::stack<T>::conatiner_type::reverse_iterator reverse_iterator;
 	typedef typename std::stack<T>::container_type::const_reverse_iterator const_reverse_iterator;
 
-	iterator 				begin();// { return this->c.begin(); };
-	iterator 				end(); // { return this->c.end(); };
-	const_iterator			begin(); // const {return this->c.begin(); };
-	const_iteratoriterator	end(); // const { return this->c.end(); };
-	reverse_iterator		begin() { return this->_c.end(); };
-	reverse_iterator		end() { return this->_c.begin(); };
-	const_reverse_iterator	begin() const { return this->c.end(); };
-	const_reverse_iterator	end() const { return this->c.begin(); };
-
+	iterator 				begin();
+	iterator 				end();
+	const_iterator			begin() const;
+	const_iteratoriterator	end() const;
+	reverse_iterator		begin();
+	reverse_iterator		end();
+	const_reverse_iterator	begin()const;
+	const_reverse_iterator	end() const;
 };
 
 #include "MutantStack.tpp"

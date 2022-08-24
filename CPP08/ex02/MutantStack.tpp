@@ -17,16 +17,25 @@ MutantStack<T>& MutantStack::operator=(const MutantStack<T>& other)
 }
 
 template<typename T>
-iterator MutantStack<T>::iterator::begin(void) { return this->c.begin(); }
+iterator MutantStack<T>::iterator::begin(void) { return c.begin(); }
 
 template<typename T>
-iterator MutantStack<T>::iterator::end(void) { return this->c.end(); }
+iterator MutantStack<T>::iterator::end(void) { return c.end(); }
 
-	iterator 				begin();// { return this->c.begin(); };
-	iterator 				end(); // { return this->c.end(); };
-	const_iterator			begin(); // const {return this->c.begin(); };
-	const_iteratoriterator	end(); // const { return this->c.end(); };
-	reverse_iterator		begin() { return this->_c.end(); };
-	reverse_iterator		end() { return this->_c.begin(); };
-	const_reverse_iterator	begin() const { return this->c.end(); };
-	const_reverse_iterator	end() const { return this->c.begin(); };
+template<typename T>
+const_iterator	MutantStack<T>::const_iterator::begin(void) const { return c.begin(); }
+
+template<typename T>
+const_iterator	MutantStack<T>::const_iterator::end(void) const { return c.end(); }
+
+template<typename T>
+reverse_iterator	MutantStack<T>::reverse_iterator::begin(void) { return c.end(); }
+
+template<typename T>
+reverse_iterator	MutantStack<T>::reverse_iterator::end(void) { return c.begin(); }
+
+template<typename T>
+const_reverse_iterator	MutantStack<T>::const_reverse_iterator::begin(void) const { return c.end(); }
+
+template<typename T>
+const_reverse_iterator	MutantStack<T>::const_reverse_iterator::end(void) const { return c.begin(); }
