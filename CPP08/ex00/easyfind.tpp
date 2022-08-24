@@ -1,8 +1,5 @@
 
-const char* NotFound::what() const throw()
-{
-	return ("Not found");
-}
+const char* NotFound::what() const throw() { return ("Not found"); }
 
 template<typename T>
 T	easyfind(std::vector<T>& var, int val)
