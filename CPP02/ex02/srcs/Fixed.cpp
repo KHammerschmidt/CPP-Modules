@@ -1,66 +1,32 @@
 #include "Fixed.hpp"
 
-Fixed::Fixed()
-{
-	this->_fixedPointNum = 0;
-}
+Fixed::Fixed() { this->_fixedPointNum = 0; }
+Fixed::~Fixed() { }
 
-Fixed::~Fixed()
-{
-}
+Fixed::Fixed(const Fixed &copyFixed) { *this = copyFixed; }
 
-//copy constructor
-Fixed::Fixed(const Fixed &copyFixed)
-{
-	*this = copyFixed;
-}
-
-//copy assignment operator overload
 Fixed& Fixed::operator=(const Fixed& fixed)
 {
 	this->_fixedPointNum = fixed._fixedPointNum;
 	return *this;
 }
 
-int	Fixed::getRawBits(void) const
-{
-	return this->_fixedPointNum;
-}
+int		Fixed::getRawBits(void) const { return this->_fixedPointNum; }
+void	Fixed::setRawBits(int const raw) { this->_fixedPointNum = raw; }
 
-void	Fixed::setRawBits(int const raw)
-{
-	this->_fixedPointNum = raw;
-}
+/* Converts int to fixed-point value */
+Fixed::Fixed(const int num) { this->_fixedPointNum = num << this->_fracBits;}
 
-//converts parameter to fixed-point value
-Fixed::Fixed(const int num)
-{
-	this->_fixedPointNum = num << this->_fracBits;
-}
+/* Converts float to fixed-point value */
+Fixed::Fixed(const float fNum) { this->_fixedPointNum = roundf(fNum * (1 << this->_fracBits)); }
 
-//converts it to the corresponding fixed-point value
-Fixed::Fixed(const float fNum)
-{
-	this->_fixedPointNum = roundf(fNum * (1 << this->_fracBits));
+/* Converts fixed_point value to floating point value */
+float	Fixed::toFloat(void) const { return (static_cast<float>(this->_fixedPointNum) / static_cast<float>(1 << this->_fracBits)); }
 
-}
+/* Converts fixed-point value to integer */
+int	Fixed::toInt(void) const { return (static_cast<int>(this->_fixedPointNum >> this->_fracBits)); }
 
-// convertes the fixed-point value to a floating point value
-float	Fixed::toFloat(void) const
-{
-	float res;
-
-	res = static_cast<float>(this->_fixedPointNum) / static_cast<float>(1 << this->_fracBits);
-
-	return (res);
-}
-
-//converts fixed-point value to an integer value
-int	Fixed::toInt(void) const
-{
-	return (static_cast<int>(this->_fixedPointNum >> this->_fracBits));
-}
-
+/* Prints floating-point representation of the fixed point number */
 std::ostream& operator<<(std::ostream& cout, const Fixed& fixed)
 {
 	cout << fixed.toFloat();
@@ -151,7 +117,7 @@ Fixed	Fixed::operator/(Fixed const& fixed) const
 	return (tmp);
 }
 
-// pre-increment, returns *this by reference
+/* Pre-increment, returns *this */
 Fixed&	Fixed::operator++(void)
 {
 	this->setRawBits(this->getRawBits() + 1);
@@ -159,7 +125,7 @@ Fixed&	Fixed::operator++(void)
 	return *this;
 }
 
-//post-increment operator: returns unchanged dummy
+/* Post-increment, returns unchanged dummy */
 Fixed Fixed::operator++(int)
 {
 	Fixed	tmp(*this);
@@ -169,7 +135,6 @@ Fixed Fixed::operator++(int)
 	return (tmp);
 }
 
-// pre-increment-operator: returns *this by reference
 Fixed&	Fixed::operator--(void)
 {
 	this->setRawBits(this->getRawBits() - 1);
@@ -177,7 +142,6 @@ Fixed&	Fixed::operator--(void)
 	return *this;
 }
 
-// post-decrement-operator: returns dummy by value
 Fixed Fixed::operator--(int)
 {
 	Fixed	tmp(*this);

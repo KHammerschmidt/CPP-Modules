@@ -26,9 +26,9 @@ bool bsp(Point const a, Point const b, Point const c, Point const point)
 		&& pointLineComparison(b, point, c, a)
 		&& pointLineComparison(c, point, b, a))
 		{
-			std::cout << "Point in triangle!" << std::endl;
+			std::cout << "\033[0;32mPoint in triangle!" << std::endl;
 			return true;
 		}
-	std::cout << "Point not in triangle!" << std::endl;
+	std::cout << "\033[0;31mPoint not in triangle!" << std::endl;
 	return false;
 }
