@@ -18,10 +18,7 @@ Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name), _grade(grade)
 	std::cout << this->_name << " bureaucrat has been created!" << std::endl;
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat& other)
-{
-	*this = other;
-}
+Bureaucrat::Bureaucrat(const Bureaucrat& other) { *this = other; }
 
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other)
 {
@@ -53,12 +50,10 @@ void	Bureaucrat::decrementGrade(void)
 		this->_grade += 1;
 }
 
-const char* Bureaucrat::GradeTooHighException::what() const throw()
-{
+const char* Bureaucrat::GradeTooHighException::what() const throw() {
 	return ("Exception: grade too high");
 }
 
-const char* Bureaucrat::GradeTooLowException::what() const throw()
-{
+const char* Bureaucrat::GradeTooLowException::what() const throw() {
 	return ("Exception: grade too low");
 }
