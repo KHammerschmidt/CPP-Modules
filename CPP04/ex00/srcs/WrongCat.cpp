@@ -1,13 +1,12 @@
 #include "WrongCat.hpp"
 
-WrongCat::WrongCat(void)
+WrongCat::WrongCat(void) 
 {
 	std::cout << "Default constructor WrongCat called.!" << std::endl;
 	this->setType("WrongCat");
 }
 
-WrongCat::~WrongCat()
-{
+WrongCat::~WrongCat() {
 	std::cout << "Destructor WrongCat called." << std::endl;
 }
 
@@ -17,12 +16,8 @@ WrongCat& WrongCat::operator=(const WrongCat& other)
 	return *this;
 }
 
-WrongCat::WrongCat(const WrongCat& other)
-{
-	*this = other;
-}
+WrongCat::WrongCat(const WrongCat& other) {	*this = other; }
 
-void	WrongCat::makeSound(void) const
-{
+void	WrongCat::makeSound(void) const {
 	std::cout << "The wrong cat makes: oink!" << std::endl;
 }

@@ -6,15 +6,8 @@ Cat::Cat(void) : Animal()
 	this->setType("Cat");
 }
 
-Cat::~Cat(void)
-{
-	std::cout << "Destructor Cat called." << std::endl;
-}
-
-Cat::Cat(const Cat& cat)
-{
-	*this = cat;
-}
+Cat::~Cat(void) { std::cout << "Destructor Cat called." << std::endl; }
+Cat::Cat(const Cat& cat) { *this = cat; }
 
 Cat& Cat::operator=(const Cat& cat)
 {
@@ -22,7 +15,4 @@ Cat& Cat::operator=(const Cat& cat)
 	return *this;
 }
 
-void	Cat::makeSound(void) const
-{
-	std::cout << "The cat makes: Miau!" << std::endl;
-}
+void	Cat::makeSound(void) const { std::cout << "The cat makes: Miau!" << std::endl; }

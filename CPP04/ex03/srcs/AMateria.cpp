@@ -1,26 +1,10 @@
 #include "AMateria.hpp"
 
-AMateria::AMateria(void)
-	: _type("AMateria")
-{
-	// std::cout << "Default constructor AMateria of type" << this->getType() << " called!"  << std::endl;
-}
+AMateria::AMateria(void) : _type("AMateria") {}
+AMateria::~AMateria(void) {}
 
-AMateria::~AMateria(void)
-{
-	// std::cout << "Destructor AMateria called." << std::endl;
-}
-
-AMateria::AMateria(const AMateria& other)
-{
-	*this = other;
-}
-
-AMateria::AMateria(std::string const& type)
-	: _type(type)
-{
-	// std::cout << "Type-Constructor AMateria of type " << this->getType() << " called!" << std::endl;
-}
+AMateria::AMateria(const AMateria& other) { *this = other; }
+AMateria::AMateria(std::string const& type) : _type(type) {}
 
 AMateria& AMateria::operator=(const AMateria& other)
 {

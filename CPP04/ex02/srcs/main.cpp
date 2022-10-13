@@ -16,7 +16,5 @@ int	main(void)
 	delete j;
 	delete i;
 
-	// system("leaks abstract");
-
 	return 0;
 }

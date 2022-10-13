@@ -1,10 +1,6 @@
 #include "Character.hpp"
 
-Character::Character(std::string const name)
-	: _name(name), _inventory()
-{
-	// std::cout << "Constructor Character called." << std::endl;
-}
+Character::Character(std::string const name) : _name(name), _inventory() {}
 
 Character::~Character()
 {
@@ -16,13 +12,9 @@ Character::~Character()
 			this->_inventory[i] = NULL;
 		}
 	}
-	// std::cout << "Destructor Character called." << std::endl;
 }
 
-Character::Character(const Character& other)
-{
-	*this = other;
-}
+Character::Character(const Character& other) { *this = other; }
 
 Character& Character::operator=(const Character& other)
 {

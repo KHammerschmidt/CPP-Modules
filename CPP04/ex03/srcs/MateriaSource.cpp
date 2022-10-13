@@ -4,7 +4,6 @@ MateriaSource::MateriaSource()
 {
 	for (int i = 0; i < 4; i++)
 		this->_inventory[i] = NULL;
-	// std::cout << "Default Constructor MateriaSource called." << std::endl;
 }
 
 MateriaSource::~MateriaSource()
@@ -15,14 +14,9 @@ MateriaSource::~MateriaSource()
 			delete this->_inventory[i];
 		this->_inventory[i] = NULL;
 	}
-
-	// std::cout << "Destructor MateriaSource called." << std::endl;
 }
 
-MateriaSource::MateriaSource(const MateriaSource& other) //: IMateriaSource(other)
-{
-	*this = other;
-}
+MateriaSource::MateriaSource(const MateriaSource& other) { *this = other; }
 
 MateriaSource& MateriaSource::operator=(const MateriaSource& other)
 {
@@ -48,8 +42,6 @@ void	MateriaSource::learnMateria(AMateria* m)
 			break ;
 		}
 	}
-		// std::cout << "New Materia type " << m->getType();
-		// std::cout << " has been stored at index " << std::endl;
 }
 
 AMateria* MateriaSource::createMateria(std::string const& type)

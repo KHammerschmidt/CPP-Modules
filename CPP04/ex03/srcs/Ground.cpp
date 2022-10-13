@@ -1,21 +1,9 @@
 #include "Ground.hpp"
 
-Ground::Ground()
-{
-	head = NULL;
-	// std::cout << "Default constructor Ground called." << std::endl;
-}
+Ground::Ground() { head = NULL; }
+Ground::~Ground() { cleanUp(); }
 
-Ground::~Ground()
-{
-	cleanUp();
-	// std::cout << "Destructor Ground called." << std::endl;
-}
-
-Ground::Ground(const Ground& other)
-{
-	*this = other;
-}
+Ground::Ground(const Ground& other) { *this = other; }
 
 Ground& Ground::operator=(const Ground& other)
 {
@@ -61,7 +49,6 @@ void	Ground::cleanUp(void)
 			tmp = NULL;
 		}
 	}
-	// std::cout << "Inventory cleaned up!" << std::endl;
 }
 
 void	Ground::RemoveGroundObj(AMateria* m)
