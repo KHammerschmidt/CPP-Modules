@@ -1,38 +1,33 @@
 #include "Harl.hpp"
 
-Harl::Harl()
-{
-}
-
-Harl::~Harl()
-{
-}
+Harl::Harl() {}
+Harl::~Harl() {}
 
 void Harl::debug(void)
 {
-	std::cout << "[DEBUG]" << std::endl;
-	std::cout << "I want to debug this code! Beep Boop!" << std::endl;
+	std::cout << "\033[0;32m[DEBUG]" << std::endl;
+	std::cout << "\033[0;32mI want to debug this code! Beep Boop!" << std::endl;
 	std::cout << std::endl;
 }
 
 void Harl::info(void)
 {
-	std::cout << "[INFO]" << std::endl;
-	std::cout << "I would like to give you some info! Beep Boop!" << std::endl;
+	std::cout << "\033[0;34m[INFO]" << std::endl;
+	std::cout << "\033[0;34mI would like to give you some info! Beep Boop!" << std::endl;
 	std::cout << std::endl;
 }
 
 void Harl::warning(void)
 {
-	std::cout << "[WARNING]" << std::endl;
-	std::cout << "WARNING WARNING! BEEP BOOP!" << std::endl;
+	std::cout << "\033[0;33m[WARNING]" << std::endl;
+	std::cout << "\033[0;33mWARNING WARNING! BEEP BOOP!" << std::endl;
 	std::cout << std::endl;
 }
 
 void Harl::error(void)
 {
-	std::cout << "[ERROR]" << std::endl;
-	std::cout << "This is unacceptable! An error occured!" << std::endl;
+	std::cout << "\033[0;31m[ERROR]" << std::endl;
+	std::cout << "\033[0;31mThis is unacceptable! An error occured!" << std::endl;
 	std::cout << std::endl;
 }
 
@@ -57,7 +52,7 @@ void Harl::complain(std::string level)
 	{
 		default :
 		{
-			std::cout << "Probably complaining about insignificant problem!" << std::endl;
+			std::cout << "\033[0;35mProbably complaining about insignificant problem!" << std::endl;
 			break ;
 		}
 		case 0 :

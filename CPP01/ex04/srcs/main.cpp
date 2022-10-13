@@ -1,16 +1,16 @@
 #include <iostream>
 #include <fstream>
 #include <string>
-
 #include "File.hpp"
 
 int	main(int argc, char **argv)
 {
 	if (argc != 4)
 	{
-		std::cout << "Usage: ./sed  <filename>  <string to replace>  <string to replace by.>" << std::endl;
+		std::cout << "\033[0;31mUsage: ./sed  <filename>  <string to replace>  <string to replace by.>" << std::endl;
 		return 1;
 	}
+	
 	std::ifstream orgFile;
 	if (File::openFile(argv[1], orgFile))
 		return 1;

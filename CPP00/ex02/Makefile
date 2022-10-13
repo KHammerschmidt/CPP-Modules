@@ -14,7 +14,7 @@ NAME 		:= 		account
 
 CXX			:=		c++
 CXXFLAGS	:=		-Wall -Werror -Wextra -std=c++98 -Iheader
-DEPFLAGS	=		-MMD -MF $(DDIR)/$*.d
+DEPFLAGS	 =		-MMD -MF $(DDIR)/$*.d
 
 INCLUDES	:=		./incl/
 VPATH		:=		./ srcs/

@@ -4,7 +4,7 @@ int main(int argc, char **argv)
 {
 	if (argc != 2)
 	{
-		std::cout << "ERROR! Invalid number of args!" << std::endl;
+		std::cout << "\033[0;31mERROR! Invalid number of args!" << std::endl;
 		return 1;
 	}
 	
