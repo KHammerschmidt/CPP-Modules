@@ -1,20 +1,10 @@
 #include "Array.hpp"
 
 template<typename T>
-Array<T>::Array(void)
-	: _arr(new T[0]), _size(0)
-{
-	// std::cout << "Default constructor called." << std::endl;
-	this->_size = 0;
-	this->_arr = new T[0];
-}
+Array<T>::Array(void) : _arr(new T[0]), _size(0) {}
 
 template<typename T>
-Array<T>::Array(unsigned int n)
-	: _arr(new T[n]), _size(n)
-{
-	// std::cout << "unsigned int constructor called." << std::endl;
-}
+Array<T>::Array(unsigned int n)	: _arr(new T[n]), _size(n) {}
 
 template<typename T>
 Array<T>::Array(const Array<T>& other)
@@ -23,21 +13,13 @@ Array<T>::Array(const Array<T>& other)
 	_size = other.size();
 	for (unsigned int i = 0; i < this->_size; i++)
 		this->_arr[i] = other._arr[i];
-	// std::cout << "Copy constructor called." << std::endl;
 }
 
 template<typename T>
-unsigned int Array<T>::size(void) const
-{
-	return this->_size;
-}
+unsigned int Array<T>::size(void) const { return this->_size; }
 
 template<typename T>
-Array<T>::~Array(void)
-{
-	// std::cout << "Destructor called." << std::endl;
-	delete[] this->_arr;
-}
+Array<T>::~Array(void) { delete[] this->_arr; }
 
 template<typename T>
 Array<T>& Array<T>::operator=(const Array<T>& other)
@@ -58,7 +40,7 @@ template<typename T>
 T&	Array<T>::operator[](unsigned int const pos) const
 {
 	if (pos >= this->_size)
-		throw std::out_of_range("Index inaccessable");
+		throw std::out_of_range("\033[0;31mIndex inaccessable");
 	return this->_arr[pos];
 }
 
@@ -75,7 +57,4 @@ std::ostream& operator<<(std::ostream& cout, const Array<T>& input)
 }
 
 template<typename T>
-T Array<T>::getArrI(unsigned int i) const
-{
-	return _arr[i];
-}
+T Array<T>::getArrI(unsigned int i) const { return _arr[i]; }
