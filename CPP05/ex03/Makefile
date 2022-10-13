@@ -12,7 +12,6 @@ COM_COLOR   := 		\033[0;34m
 # **************************************************************************** #
 NAME 		:= 		intern
 
-
 CXX			:=		c++
 CXXFLAGS	:=		-Wall -Werror -Wextra -std=c++98 -Iheader
 DEPFLAGS	 =		-MMD -MF $(DDIR)/$*.d
